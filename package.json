@@ -1,0 +1,23 @@
+{
+  "name": "multivision",
+  "version": "1.0.0",
+  "description": "MEAN Stack PluralSight",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines":{
+     "node":"v4.3.x",
+     "npm":"2.14.x"
+  },
+  "author": "Subha J",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "mongoose": "^4.4.11",
+    "morgan": "^1.7.0",
+    "stylus": "^0.54.2"
+  }
+}
