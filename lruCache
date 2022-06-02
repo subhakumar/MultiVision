@@ -1,0 +1,79 @@
+class LRUCache {
+    capacity:number;
+    cache:Map<any,any>;
+
+    constructor (cap:number) {
+        this.capacity = cap;
+        this.cache = new Map()
+    }
+
+    get(key:any):any {
+        let returnValue = -1
+        if (this.cache.has(key)) {
+            returnValue = this.cache.get(key)
+            this.cache.delete(key)
+            this.set(key,returnValue)
+        }
+        return returnValue;
+    }
+
+    set(key:any, val:any) {
+        if (this.get(key) === -1) {  //Key doesn't exists
+            //Does it have the capacity
+            // console.log(`What is the size ${this.cache.size}`)
+            // console.log(`What is the capacity ${this.capacity}`)
+            if (this.capacity === this.cache.size) {
+                //We have the capacity
+                //We need to set the value
+        for (let keyVal of this.cache) {
+          this.cache.delete(keyVal[0])
+          break;
+        }
+            } 
+            this.cache.set(key,val)                            
+        }
+    }
+
+
+//       se1t(key:number,val:any):void {
+//     if (this.get(key) === -1) {
+//       //Key doesn't exists so we need to add it as a most used item
+//       //Now check whether the capacity is full
+//       if (this.capacity === this.cache.size) {
+//         // We need to replace the existing one so remove the one
+//         // Delete the first one
+//         for (let keyVal of this.cache) {
+//           this.cache.delete(keyVal[0])
+//           break;
+//         }
+//       }
+//       this.cache.set(key, val)
+      
+//     }
+//   }
+
+}
+
+const LRU = new LRUCache(2)
+
+LRU.set(1,1)
+LRU.set(2,2)
+console.log(LRU.get(1))
+LRU.set(3,3)
+console.log(LRU.get(2))
+LRU.set(4,4)
+console.log(LRU.get(1))
+console.log(LRU.get(3))
+console.log(LRU.get(4))
+
+
+
+
+// const test = new Map()
+// test.set("1","Page 1")
+// test.set("2","Page 2")
+// test.set("3","Page 3")
+// console.log(test)
+// test.delete("2")
+// test.set("4","Page 4")
+// console.log(test)
